@@ -1,4 +1,4 @@
-18:43:54 **** Incremental Build of configuration Release for project MedicineDispenser ****
+21:44:50 **** Incremental Build of configuration Release for project MedicineDispenser ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "MedicineDispenser.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MedicineDispenser.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -6,16 +6,23 @@ Finished building target: MedicineDispenser.elf
  
 arm-none-eabi-size   MedicineDispenser.elf 
 arm-none-eabi-objdump -h -S  MedicineDispenser.elf  > "MedicineDispenser.list"
+Finished building: MedicineDispenser.list
    text	   data	    bss	    dec	    hex	filename
-   3292	     20	   1572	   4884	   1314	MedicineDispenser.elf
+   1260	     12	   1588	   2860	    b2c	MedicineDispenser.elf
+ 
 Finished building: default.size.stdout
  
-Finished building: MedicineDispenser.list
- 
-18:43:58 **** Incremental Build of configuration Release for project MedicineDispenser ****
+21:45:25 **** Incremental Build of configuration Release for project MedicineDispenser ****
 make -j7 all 
 arm-none-eabi-size   MedicineDispenser.elf 
    text	   data	    bss	    dec	    hex	filename
-   3292	     20	   1572	   4884	   1314	MedicineDispenser.elf
+   1260	     12	   1588	   2860	    b2c	MedicineDispenser.elf
+Finished building: default.size.stdout
+ 
+21:47:29 **** Incremental Build of configuration Release for project MedicineDispenser ****
+make -j7 all 
+arm-none-eabi-size   MedicineDispenser.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1260	     12	   1588	   2860	    b2c	MedicineDispenser.elf
 Finished building: default.size.stdout
  
