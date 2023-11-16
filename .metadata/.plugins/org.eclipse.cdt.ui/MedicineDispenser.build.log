@@ -1,10 +1,10 @@
-21:47:29 **** Incremental Build of configuration Release for project MedicineDispenser ****
+22:32:36 **** Incremental Build of configuration Release for project MedicineDispenser ****
 make -j7 all 
 arm-none-eabi-size   MedicineDispenser.elf 
    text	   data	    bss	    dec	    hex	filename
-   1260	     12	   1588	   2860	    b2c	MedicineDispenser.elf
+   3888	     20	   1588	   5496	   1578	MedicineDispenser.elf
 Finished building: default.size.stdout
  
 
-21:47:29 Build Finished. 0 errors, 0 warnings. (took 314ms)
+22:32:37 Build Finished. 0 errors, 0 warnings. (took 342ms)
 
