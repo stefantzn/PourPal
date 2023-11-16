@@ -1,3 +1,5 @@
+//org.eclipse.ui.commands/state/com.st.stm32cube.ide.mcu.buildanalyzer.showstate/org.eclipse.ui.commands.radioState=human
+//org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 ACTIVE_HYPERLINK_COLOR=138,201,242
 CONFLICTING_COLOR=240,15,66
 CONTENT_ASSIST_BACKGROUND_COLOR=52,57,61
@@ -8,6 +10,7 @@ HYPERLINK_COLOR=111,197,238
 INCOMING_COLOR=31,179,235
 OUTGOING_COLOR=238,238,238
 RESOLVED_COLOR=108,210,17
+UIActivities.org.eclipse.cdt.debug.dsfgdbActivity=true
 eclipse.preferences.version=1
 org.eclipse.cdt.ui.ColoredLabels.writeaccess_highlight=255,128,128
 org.eclipse.cdt.ui.outline.mark.dividercolor=80,80,80
