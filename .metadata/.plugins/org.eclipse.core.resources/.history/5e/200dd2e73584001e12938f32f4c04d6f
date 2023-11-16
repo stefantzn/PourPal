@@ -148,7 +148,7 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief GPIO Initialization Functions
+  * @brief GPIO Initialization Function
   * @param None
   * @retval None
   */
