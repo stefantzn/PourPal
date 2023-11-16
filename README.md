@@ -1,6 +1,7 @@
-# Medicine Dispenser with STM32
+# Medicine Dispenser
 
-![Project Image](link_to_project_image.png)
+Stefan, Andrew, Jeff
+
 
 ## Overview
 
@@ -31,3 +32,9 @@ This repository contains the source code and documentation for a Medicine Dispen
    ```bash
    git clone https://github.com/yourusername/medicine-dispenser-stm32.git
    cd medicine-dispenser-stm32
+
+## Gallery
+
+![CAD](Images/CAD.png)
+![Schematic](Images/Design%20Document-1.jpg)
+![Blueprint](Images/Design%20Document-2.jpg)
