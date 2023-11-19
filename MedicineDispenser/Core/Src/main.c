@@ -80,7 +80,11 @@ char uartBuf[100];
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  uint32_t numTicks = 0;
+  uint32_t start_time = 0;
+  uint32_t elapsed_time = 0;
+  uint8_t process_active = 0;
+  uint8_t button_was_pressed = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -112,57 +116,71 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+    /* Check if the button is pressed */
+    if (HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_SET)
+    {
+      if (!button_was_pressed)
+      {
+        // Button was tapped, start the process
+        start_time = HAL_GetTick();
+        button_was_pressed = 1;
+        process_active = 1;
+      }
 
-    /* USER CODE BEGIN 3 */
-		//Set TRIG to LOW for few uSec
-		HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
-		usDelay(3);
+      elapsed_time = HAL_GetTick() - start_time;
 
-		//*** START Ultrasonic measure routine ***//
-		//1. Output 10 usec TRIG
-		HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_SET);
-		usDelay(10);
-		HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
+      // Check if 10 seconds have passed
+      if (elapsed_time < 10000)
+      {
+        //Set TRIG to LOW for a few uSec
+        HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
+        usDelay(3);
 
-		//2. ECHO signal pulse width
+        //*** START Ultrasonic measure routine ***//
+        //1. Output 10 usec TRIG
+        HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_SET);
+        usDelay(10);
 
-		//Start IC timer
-		HAL_TIM_IC_Start_IT(&htim3, TIM_CHANNEL_1);
-		//Wait for IC flag
-		uint32_t startTick = HAL_GetTick();
-		do
-		{
-			if(icFlag) break;
-		}while((HAL_GetTick() - startTick) < 500);  //500ms
-		icFlag = 0;
-		HAL_TIM_IC_Stop_IT(&htim3, TIM_CHANNEL_1);
+        HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
 
-		//Calculate distance in cm
-		if(edge2Time > edge1Time)
-		{
-			distance = ((edge2Time - edge1Time) + 0.0f)*speedOfSound;
-		}
-		else
-		{
-			distance = 0.0f;
-		}
+        //2. ECHO signal pulse width
+        //Start IC timer
+        while (HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin) == GPIO_PIN_RESET)
+          ;
 
-		//Print to UART terminal for debugging
+        //3. Start measuring ECHO pulse width in usec
+        numTicks = 0;
+        while (HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin) == GPIO_PIN_SET)
+        {
+          numTicks++;
+          usDelay(2); //2.8usec
+        };
 
+        //4. Estimate distance in cm
+        distance = (numTicks + 0.0f) * 2.8 * speedOfSound;
 
-		if (distance > 5)
-		  {
-
-		HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_SET);
-
-		  }
-		else
-		  {
-
-		  HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_RESET);
-		 }
-
+        // Print to UART terminal for debugging
+        if (distance < 10)
+        {
+          HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_SET);
+        }
+        else
+        {
+          HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_RESET);
+        }
+      }
+      else
+      {
+        // Process completed, turn off and reset
+        HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_RESET);
+        process_active = 0;
+      }
+    }
+    else
+    {
+      // Button released, reset button state
+      button_was_pressed = 0;
+    }
   }
   /* USER CODE END 3 */
 }
@@ -227,7 +245,6 @@ static void MX_TIM3_Init(void)
 
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_IC_InitTypeDef sConfigIC = {0};
 
   /* USER CODE BEGIN TIM3_Init 1 */
 
@@ -247,21 +264,9 @@ static void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_TIM_IC_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_BOTHEDGE;
-  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
-  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-  sConfigIC.ICFilter = 5;
-  if (HAL_TIM_IC_ConfigChannel(&htim3, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -370,11 +375,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LED_Pin|TRIG_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : Button_Pin */
-  GPIO_InitStruct.Pin = Button_Pin;
+  /*Configure GPIO pins : Button_Pin BUTTON_Pin */
+  GPIO_InitStruct.Pin = Button_Pin|BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(Button_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PUMP_Pin */
   GPIO_InitStruct.Pin = PUMP_Pin;

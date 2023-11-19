@@ -1,21 +1,25 @@
-17:31:47 **** Incremental Build of configuration Release for project MedicineDispenser ****
+00:46:03 **** Incremental Build of configuration Release for project MedicineDispenser ****
 make -j7 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -Wall -u _printf_float -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:86:11: warning: variable 'process_active' set but not used [-Wunused-but-set-variable]
+   86 |   uint8_t process_active = 0;
+      |           ^~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "MedicineDispenser.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MedicineDispenser.map" -Wl,--gc-sections -static -mcpu=cortex-m4 -mthumb -u _printf_float -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: MedicineDispenser.elf
  
 arm-none-eabi-size   MedicineDispenser.elf 
 arm-none-eabi-objdump -h -S  MedicineDispenser.elf  > "MedicineDispenser.list"
    text	   data	    bss	    dec	    hex	filename
-  21180	    476	   2140	  23796	   5cf4	MedicineDispenser.elf
+  20420	    476	   2140	  23036	   59fc	MedicineDispenser.elf
 Finished building: default.size.stdout
  
 Finished building: MedicineDispenser.list
  
-17:31:51 **** Incremental Build of configuration Release for project MedicineDispenser ****
+00:46:08 **** Incremental Build of configuration Release for project MedicineDispenser ****
 make -j7 all 
 arm-none-eabi-size   MedicineDispenser.elf 
    text	   data	    bss	    dec	    hex	filename
-  21180	    476	   2140	  23796	   5cf4	MedicineDispenser.elf
+  20420	    476	   2140	  23036	   59fc	MedicineDispenser.elf
 Finished building: default.size.stdout
  

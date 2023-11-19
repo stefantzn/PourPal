@@ -1,0 +1,37 @@
+2023-11-19 00:03:56,418 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-19 00:04:35,517 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 456000224 Bytes (958398464)
+2023-11-19 00:04:35,768 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 473303776 Bytes (958398464)
+2023-11-19 00:04:40,136 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 551946976 Bytes (958398464)
+2023-11-19 00:04:40,447 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-19 00:04:40,448 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-19 00:04:40,448 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-19 00:04:40,448 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-19 00:04:40,448 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-19 00:04:40,448 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-19 00:04:40,450 [INFO] CodeGenerator:799 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.9.2.202309101412//db/
+2023-11-19 00:04:40,667 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/MXTmpFiles/license.tmp_save
+2023-11-19 00:04:40,852 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/MXTmpFiles/license.tmp
+2023-11-19 00:04:40,909 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/MXTmpFiles/gpio.tmp_save
+2023-11-19 00:04:41,052 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/MXTmpFiles/gpio.tmp
+2023-11-19 00:04:41,367 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Src/stm32f4xx_it.c_save
+2023-11-19 00:04:42,018 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Src/stm32f4xx_it.c
+2023-11-19 00:04:42,027 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Inc/stm32f4xx_it.h_save
+2023-11-19 00:04:42,145 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Inc/stm32f4xx_it.h
+2023-11-19 00:04:42,171 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Src/stm32f4xx_hal_msp.c_save
+2023-11-19 00:04:42,372 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Src/stm32f4xx_hal_msp.c
+2023-11-19 00:04:42,375 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/MXTmpFiles/system.tmp_save
+2023-11-19 00:04:42,477 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/MXTmpFiles/system.tmp
+2023-11-19 00:04:42,482 [INFO] CodeEngine:311 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Inc/stm32f4xx_hal_conf.h_save
+2023-11-19 00:04:42,591 [INFO] CodeEngine:335 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Inc/stm32f4xx_hal_conf.h
+2023-11-19 00:04:42,624 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-19 00:04:42,624 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-19 00:04:42,629 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Inc/main.h_save
+2023-11-19 00:04:42,771 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Inc/main.h
+2023-11-19 00:04:42,775 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Src/main.c_save
+2023-11-19 00:04:42,950 [INFO] CodeEngine:279 - Generated code: /Users/stefan/Files/Programming/ECE198/MedicineDispenser/MedicineDispenser/Core/Src/main.c
+2023-11-19 00:04:44,192 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 96mS.
+2023-11-19 00:04:44,207 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-19 00:04:44,742 [INFO] ConfigFileManager:1457 - The Die is : DIE433
+2023-11-19 00:04:48,318 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 4097mS.
+2023-11-19 00:04:48,351 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 4mS.
+2023-11-19 00:04:48,360 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
