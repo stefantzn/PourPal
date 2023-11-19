@@ -114,44 +114,74 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  /* Infinite loop */
-  while (1) {
+  while (1)
+  {
     /* Check if the button is pressed */
+    if (HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_SET)
+    {
+      if (!button_was_pressed)
+      {
+        // Button was tapped, start the process
+        start_time = HAL_GetTick();
+        button_was_pressed = 1;
+        process_active = 1;
+      }
 
-      HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
-      usDelay(3);
+      elapsed_time = HAL_GetTick() - start_time;
 
-      // *** START Ultrasonic measure routine ***//
-      // 1. Output 10 usec TRIG
-      HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_SET);
-      usDelay(10);
+      // Check if 10 seconds have passed
+      if (elapsed_time < 10000)
+      {
+        //Set TRIG to LOW for a few uSec
+        HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
+        usDelay(3);
 
-      HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
+        //*** START Ultrasonic measure routine ***//
+        //1. Output 10 usec TRIG
+        HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_SET);
+        usDelay(10);
 
-      while (HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin) == GPIO_PIN_RESET)
-                ;
+        HAL_GPIO_WritePin(TRIG_GPIO_Port, TRIG_Pin, GPIO_PIN_RESET);
 
-              // 3. Start measuring ECHO pulse width in usec
-              numTicks = 0;
-              while (HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin) == GPIO_PIN_SET)
-              {
-                numTicks++;
-                usDelay(2); // 2.8usec
-              };
+        //2. ECHO signal pulse width
+        //Start IC timer
+        while (HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin) == GPIO_PIN_RESET)
+          ;
 
-              // 4. Estimate distance in cm
-              distance = (numTicks + 0.0f) * 2.8 * speedOfSound;
+        //3. Start measuring ECHO pulse width in usec
+        numTicks = 0;
+        while (HAL_GPIO_ReadPin(ECHO_GPIO_Port, ECHO_Pin) == GPIO_PIN_SET)
+        {
+          numTicks++;
+          usDelay(2); //2.8usec
+        };
 
-    if (HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_SET && distance < 10) {
+        //4. Estimate distance in cm
+        distance = (numTicks + 0.0f) * 2.8 * speedOfSound;
 
+        // Print to UART terminal for debugging
+        if (distance < 10)
+        {
           HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_SET);
-          HAL_Delay(10000);
-
-
+        }
+        else
+        {
+          HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_RESET);
+        }
+      }
+      else
+      {
+        // Process completed, turn off and reset
+        HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_RESET);
+        process_active = 0;
+      }
     }
-    HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_RESET);
+    else
+    {
+      // Button released, reset button state
+      button_was_pressed = 0;
+    }
   }
-
   /* USER CODE END 3 */
 }
 
