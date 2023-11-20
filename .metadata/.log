@@ -217,3 +217,16 @@ java.lang.Exception: File: /Users/stefan/Files/Programming/ECE198/MedicineDispen
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-11-18 15:41:43.318
 !MESSAGE Indexed 'MedicineDispenser' (22 sources, 87 headers) in 2.46 sec: 6,162 declarations; 39,208 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0044%)
+!SESSION 2023-11-19 22:54:27.419 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_CA
+Framework arguments:  -keyring /Users/stefan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/stefan/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-11-19 22:54:43.509
+!MESSAGE Log4j2 initialized with config file /Users/stefan/Files/Programming/ECE198/MedicineDispenser/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-11-19 22:54:58.219
+!MESSAGE Started RMI Server, listening on port 41337
