@@ -17,7 +17,7 @@ This repository contains the source code and documentation for a Medicine Dispen
 
 - STM32 Microcontroller (e.g., STM32F4 Discovery)
 - Motor Driver
-- Pumo
+- Pump
 - Keypad/Button Interface
 
 ## Software Requirements
