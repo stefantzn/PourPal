@@ -17,7 +17,7 @@ This repository contains the source code and documentation for a Medicine Dispen
 - STM32 Microcontroller (e.g., STM32F4 Discovery)
 - Motor Driver
 - Pump
-- Keypad/Button Interface
+- Button Interface
 
 ## Software Requirements
 
@@ -52,8 +52,7 @@ git clone https://github.com/yourusername/medicine-dispenser-stm32.git
 
 ## Gallery
 
-![CAD](Images/CAD.png)
-![Schematic](Images/Design%20Document-1.jpg)
-![Blueprint](Images/Design%20Document-2.jpg)
+![Mechanical](Images/Mechanical.png)
+![Electrical](Images/Electrical.png)
 
-#### University of Waterloo Project Studio (ECE198) Project
+#### Project created for the Project Studio (ECE198) course at the University of Waterloo.
