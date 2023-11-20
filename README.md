@@ -1,7 +1,6 @@
-# Medicine Dispenser
+# PourPal
 
-Stefan, Andrew, Jeff
-
+A liquid medicine dispenser that dispenses precise doses of medication based on user prescriptions and needs.
 
 ## Overview
 
@@ -56,3 +55,5 @@ git clone https://github.com/yourusername/medicine-dispenser-stm32.git
 ![CAD](Images/CAD.png)
 ![Schematic](Images/Design%20Document-1.jpg)
 ![Blueprint](Images/Design%20Document-2.jpg)
+
+#### University of Waterloo Project Studio (ECE198) Project
