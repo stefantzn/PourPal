@@ -1,6 +1,6 @@
 # Medicine Dispenser
 
-Stefan, Andrew, Jeff
+Stefan Tuczynski, Andrew Wang, Jeff Yang
 
 
 ## Overview
