@@ -17,21 +17,39 @@ This repository contains the source code and documentation for a Medicine Dispen
 
 - STM32 Microcontroller (e.g., STM32F4 Discovery)
 - Motor Driver
-- Pumo
+- Pump
 - Keypad/Button Interface
 
 ## Software Requirements
 
 - STM32CubeIDE
+- STM32CubeMX
 - CMSIS and HAL Libraries
-- [Additional libraries or dependencies]
 
 ## Getting Started
 
-1. **Clone the Repository:**
+### 1. **Setup the STM32CubeIDE:**
+   Download and install [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html).
+   Open STM32CubeIDE and import the project:
+   `File > Import > General > Existing Projects into Workspace`.
+   Select the cloned repository as the root directory.
+
+### 2. **Configure STM32CubeMX**
+   Download and install [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html).
+   
+### 3. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/medicine-dispenser-stm32.git
+git clone https://github.com/yourusername/medicine-dispenser-stm32.git
    cd medicine-dispenser-stm32
+```
+   
+### 4. **Install CMSIS and HAL Libraries**
+   Download the necessary CMSIS and HAL libraries from the [STMicroelectronics website](https://www.st.com/).
+   Extract the libraries and place them in the appropriate directories within the project.
+
+### 5. **Build and Flash the Project**
+   Build the project in STM32CubeIDE.
+   Flash the compiled code onto the STM32 microcontroller.
 
 ## Gallery
 
