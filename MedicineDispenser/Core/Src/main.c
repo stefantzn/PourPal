@@ -145,7 +145,7 @@ int main(void)
     if (HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_SET && distance < 10) {
 
           HAL_GPIO_WritePin(PUMP_GPIO_Port, PUMP_Pin, GPIO_PIN_SET);
-          HAL_Delay(10000);
+          HAL_Delay(500000);
 
 
     }

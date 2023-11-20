@@ -5,4 +5,5 @@ configDescList=org.eclipse.launchbar.core.descriptorType.default\:New_configurat
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MedicineDispenser\ Release/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MedicineDispenser\ Release/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:New_configuration/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:New_configuration/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
